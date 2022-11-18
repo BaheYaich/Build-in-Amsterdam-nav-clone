@@ -142,7 +142,6 @@ html:focus-within {
 body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
-  line-height: 1.5;
 }
 
 /* A elements that don't have a class get default styles */
@@ -179,8 +178,223 @@ select {
     scroll-behavior: auto !important;
   }
 }
+.scroll-up {
+  animation-name: columnSlideUp;
+  animation-timing-function: linear;
+  animation-duration: 50s;
+  animation-iteration-count: infinite;
+}
+
+.scroll-down {
+  animation-name: columnSlideUp;
+  animation-timing-function: linear;
+  animation-duration: 55s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes columnSlideUp {
+  0% {
+    margin-top: 0px;
+  }
+  100% {
+    margin-top: -478vh;
+  }
+}
 body {
   font-family: "Roboto", sans-serif;
+  font-size: 16px;
   font-weight: 400;
   line-height: 1;
+  overflow: hidden;
+  position: relative;
+}
+body > main, body nav > ul {
+  transition: transform 500ms cubic-bezier(0.13, 0.53, 0.38, 0.97);
+}
+body[data-nav=true] main {
+  transform: translateY(-40%);
+}
+body[data-nav=true] nav > ul {
+  transform: translateY(40%) scale(1);
+}
+body[data-nav=true] button#navToggle {
+  background-color: rgb(85, 130, 149);
+}
+body[data-nav=true] button#navToggle > h2 {
+  color: white;
+}
+body[data-nav=false] main {
+  transform: translateY(0);
+}
+body[data-nav=false] nav > ul {
+  transform: translateY(-30%) scale(0.7);
+}
+body[data-nav=false] button#navToggle {
+  background-color: rgb(195, 129, 51);
+}
+body[data-nav=false] button#navToggle > h2 {
+  color: black;
+}
+
+main {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  z-index: 2;
+  background: white;
+}
+main .grid-container {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr 1fr 2fr;
+  position: relative;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+main .grid-container::-webkit-scrollbar {
+  display: none;
+}
+main .grid-container .column {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  height: 100vh;
+}
+main .grid-container .column.static {
+  background-color: #f2efe6;
+  padding: 3rem;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+main .grid-container .column.static .top, main .grid-container .column.static #Title, main .grid-container .column.static .bottom {
+  display: flex;
+  flex-direction: column;
+}
+main .grid-container .column.static .top, main .grid-container .column.static .bottom {
+  align-self: end;
+  width: 40ch;
+}
+main .grid-container .column.static #Title {
+  padding-left: 3rem;
+  font-size: 6rem;
+  width: 12ch;
+}
+main .grid-container .column.static .top * {
+  text-align: right;
+}
+main .grid-container .column.static .top *:first-child {
+  font-weight: 700;
+}
+main .grid-container .column.static .bottom h2 {
+  font-size: 2rem;
+  font-weight: 100;
+  padding-right: 2rem;
+}
+main .grid-container .column:not(:last-child) img {
+  height: 850px;
+  object-fit: cover;
+  object-position: center center;
+  aspect-ratio: 9/16;
+}
+
+button#navToggle {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  width: 75px;
+  height: 75px;
+  border: none;
+  outline: none;
+  box-shadow: 0rem 0rem 4rem rgba(0, 0, 0, 0.35);
+  border-radius: 5rem;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  transition-delay: 220ms;
+  transform: translateX(-50%) scale(1);
+  z-index: 5;
+}
+button#navToggle > h2 {
+  transition: all 0.2s ease;
+  opacity: 0;
+  transform: rotateZ(0deg) translateX(0px) translateY(0px);
+  font-size: 1em;
+}
+button#navToggle:hover {
+  transform: translateX(-50%) scale(1.04);
+}
+button#navToggle:hover > h2 {
+  opacity: 1;
+  transform: rotateZ(50deg) translateX(0px) translateY(-45px);
+}
+button#navToggle:active {
+  transform: translateX(-50%) scale(0.96);
+}
+button#navToggle:focus {
+  outline: 2px dashed gray;
+  outline-offset: 5px;
+}
+
+nav#nav {
+  height: 50vh;
+  width: 100%;
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  z-index: 1;
+  overflow: hidden;
+  background-color: black;
+}
+nav#nav > ul {
+  list-style: none;
+  position: relative;
+  display: grid;
+  gap: clamp(1rem, 4vw, 2rem);
+  padding: 2rem;
+  margin: 0;
+  grid-auto-flow: column;
+  grid-auto-columns: 20vw;
+}
+nav#nav > ul li a {
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: white;
+  position: relative;
+}
+nav#nav > ul li a p {
+  transition: transform 500ms cubic-bezier(0.13, 0.53, 0.38, 0.97);
+  transform: translateX(0);
+  display: inline-block;
+}
+nav#nav > ul li a img {
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+  object-fit: cover;
+  object-position: center center;
+  aspect-ratio: 16/9;
+  width: 20vw;
+  transition: transform 500ms cubic-bezier(0.13, 0.53, 0.38, 0.97);
+  transform: scale(1);
+}
+nav#nav > ul li:hover {
+  text-decoration: none;
+}
+nav#nav > ul li:hover::before {
+  content: "";
+  width: 0.6em;
+  height: 0.6em;
+  border-radius: 100%;
+  background-color: #083983;
+  float: left;
+}
+nav#nav > ul li:hover p {
+  transform: translateX(20px);
+}
+nav#nav > ul li:hover img {
+  transform: scale(0.9);
 }

@@ -1,6 +1,215 @@
 @import "variables";
+@import "fonts";
 @import "reset";
+@import "scrollanimation";
 
-.color-primary {
-    color: $color-primary;
+body {
+    font-family: $font-primary;
+    font-size: $font-size-base;
+    font-weight: $font-weight-regular;
+    line-height: $line-height-default;
+    overflow: hidden;
+    position: relative;
+    > main, nav > ul {
+        transition: transform 500ms cubic-bezier(.13,.53,.38,.97);
+    }
+    &[data-nav='true'] {
+        main {
+            transform: translateY(-40%);
+        }
+        nav > ul {
+            transform: translateY(40%) scale(1);
+        }
+        button#navToggle {
+            background-color: rgb(85, 130, 149);
+            > h2 {
+                color: white;
+            }
+        }
+    }
+    &[data-nav='false'] {
+        main {
+            transform: translateY(0);
+        }
+        nav > ul {
+            transform: translateY(-30%) scale(0.7);
+        }
+        button#navToggle {
+            background-color: rgb(195, 129, 51);
+            > h2 {
+                color: black;
+            }
+        }
+    }
+}
+
+main {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    z-index: 2;
+    background: white;
+    .grid-container {
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: 1fr 1fr 2fr;
+        position: relative;
+        overflow-y: scroll;
+        // Firefox scrollbar rules
+        scrollbar-width: none;
+        // Chrome scrollbar rules
+        &::-webkit-scrollbar {
+            display: none;
+        }
+        .column {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            height: 100vh;
+            &.static {
+                background-color: $background-primary;
+                padding: 3rem;
+                height: 100vh;
+                position: sticky;
+                top: 0;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                .top, #Title, .bottom {
+                    display: flex;
+                    flex-direction: column;
+                }
+                .top, .bottom {
+                    align-self: end;
+                    width: 40ch;
+                }
+                #Title {
+                    padding-left: 3rem;
+                    font-size: 6rem;
+                    width: 12ch;
+                }
+                .top * {
+                    text-align: right;
+                    &:first-child {
+                        font-weight: $font-weight-bold;
+                    }
+                }
+                .bottom h2{
+                    font-size: 2rem;
+                    font-weight: $font-weight-thin;
+                    padding-right: 2rem;
+                }
+            }
+            &:not(:last-child) {
+                img {
+                    height: 850px;
+                    object-fit: cover;
+                    object-position: center center;
+                    aspect-ratio: 9/16;
+                }
+            }
+        }
+    }
+}
+
+button#navToggle {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    width: 75px;
+    height: 75px;
+    border: none;
+    outline: none;
+    box-shadow: 0rem 0rem 4rem rgba(0 0 0 / 35%);
+    border-radius: $border-radius-50;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    transition-delay: 220ms;
+    transform: translateX(-50%) scale(1);
+    z-index: 5;
+    > h2 {
+        transition: all 0.2s ease;
+        opacity: 0;
+        transform: rotateZ(0deg) translateX(0px) translateY(0px);
+        font-size: 1em;
+    }
+    &:hover {
+        transform: translateX(-50%) scale(1.04);
+        > h2 {
+            opacity: 1;
+            transform: rotateZ(50deg) translateX(0px) translateY(-45px);
+        }
+    }
+    // When clicking and releasing onmousedown
+    &:active {
+        transform: translateX(-50%) scale(0.96);
+    }
+    // Tab-focus for accessibility, need to make it work only when using tabulations
+    &:focus {
+        outline: 2px dashed gray;
+        outline-offset: 5px;
+    }
+}
+
+nav#nav {
+    height: 50vh;
+    width: 100%;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    z-index: 1;
+    overflow: hidden;
+    background-color: black;
+    > ul {
+        list-style: none;
+        position: relative;
+        display: grid;
+        gap: clamp(1rem, 4vw, 2rem);
+        padding: 2rem;
+        margin: 0;
+        grid-auto-flow: column;
+        grid-auto-columns: 20vw;
+        li {
+            a {
+                text-decoration: none;
+                font-family: $font-primary;
+                font-weight: $font-weight-bold;
+                font-size: 1.5rem;
+                color: white;
+                position: relative;
+                p {
+                    transition: transform 500ms cubic-bezier(.13,.53,.38,.97);
+                    transform: translateX(0);
+                    display: inline-block;
+                }
+                img {
+                    border-radius: $border-radius-5;
+                    margin-top: 1rem;
+                    object-fit: cover;
+                    object-position: center center;
+                    aspect-ratio: 16 / 9;
+                    width: 20vw;
+                    transition: transform 500ms cubic-bezier(.13,.53,.38,.97);
+                    transform: scale(1);
+                }
+            }
+            &:hover {
+                text-decoration: none;
+                &::before {
+                    content: "";
+                    width: 0.6em;
+                    height: 0.6em;
+                    border-radius: 100%;
+                    background-color: $color-primary;
+                    float: left;
+                }
+                p {
+                    transform: translateX(20px);
+                }
+                img {
+                    transform: scale(0.9);
+                }
+            }
+        }
+    }
 }

@@ -1,0 +1,104 @@
+main {
+    background-color:  $background-primary;
+    animation: main-anim 1.5s ease-in-out forwards;
+}
+
+main > section * {
+    animation: grid-container-anim 1.5s ease-in-out forwards;
+}
+main > section {
+    .top, .bottom {
+        opacity: 0;
+        animation-delay: 1.5s;
+    }
+}
+main > section > *:not(aside):not(#Title) {
+    background-color: $background-primary;
+    opacity: 0;
+    animation: grid-container-anim-2 3s cubic-bezier(0.215, 0.610, 0.355, 1) forwards;
+    animation-delay: 1s;
+}
+main .column.static #Title {
+    position: relative;
+    opacity: 1;
+    .title-span-top {
+        opacity: 0;
+        transform: translateY(100%);
+        animation: title-span-top-anim 0.5s ease-in-out forwards;
+    }
+    .title-span-middle {
+        opacity: 0;
+        transform: translateY(100%);
+        animation: title-span-middle-anim 0.5s ease-in-out forwards;
+        animation-delay: 0.5s;
+    }
+    .title-span-bottom {
+        opacity: 0;
+        transform: translateY(100%);
+        animation: title-span-bottom-anim 0.5s ease-in-out forwards;
+        animation-delay: 1s;
+    }
+}
+
+@keyframes title-span-top-anim {
+    0% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes title-span-middle-anim {
+    0% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes title-span-bottom-anim {
+    0% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes grid-container-anim {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes grid-container-anim-2 {
+    0% {
+        opacity: 0;
+        background-color: $background-primary;
+    }
+    100% {
+        opacity: 1;
+        background-color: white;
+    }
+}
+
+@keyframes main-anim {
+    0% {
+        background-color: $background-primary;
+    }
+    100% {
+        background-color: white;
+    }
+}
+

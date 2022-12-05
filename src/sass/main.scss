@@ -1,7 +1,8 @@
 @import "variables";
 @import "fonts";
 @import "reset";
-@import "scrollanimation";
+// @import "scrollanimation"; CSS Scroll animation
+// @import "onpageload-animation";
 
 body {
     font-family: $font-primary;
@@ -47,20 +48,14 @@ main {
     width: 100vw;
     height: 100vh;
     position: relative;
-    z-index: 2;
     background: white;
+    z-index: 2;
     .grid-container {
         display: grid;
         gap: 2rem;
-        grid-template-columns: 1fr 1fr 2fr;
+        grid-template-columns: 1fr 1fr;
         position: relative;
-        overflow-y: scroll;
-        // Firefox scrollbar rules
-        scrollbar-width: none;
-        // Chrome scrollbar rules
-        &::-webkit-scrollbar {
-            display: none;
-        }
+        overflow: hidden;
         .column {
             display: flex;
             flex-direction: column;
@@ -106,6 +101,27 @@ main {
                     object-fit: cover;
                     object-position: center center;
                     aspect-ratio: 9/16;
+                    @media (max-width: 991px) {
+                        height: 100%;
+                    }
+                }
+            }
+            &.image-container {
+                overflow: auto;
+                // Firefox scrollbar rules
+                scrollbar-width: none;
+                // Chrome scrollbar rules
+                &::-webkit-scrollbar {
+                    display: none;
+                }
+                .image-row {
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: nowrap;
+                    gap: 2rem;
+                    > figure {
+                        flex: 1;
+                    }
                 }
             }
         }
@@ -126,7 +142,7 @@ button#navToggle {
     transition: all 0.4s ease;
     transition-delay: 220ms;
     transform: translateX(-50%) scale(1);
-    z-index: 5;
+    z-index: 2;
     > h2 {
         transition: all 0.2s ease;
         opacity: 0;

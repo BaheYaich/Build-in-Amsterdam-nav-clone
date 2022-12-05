@@ -178,28 +178,6 @@ select {
     scroll-behavior: auto !important;
   }
 }
-.scroll-up {
-  animation-name: columnSlideUp;
-  animation-timing-function: linear;
-  animation-duration: 50s;
-  animation-iteration-count: infinite;
-}
-
-.scroll-down {
-  animation-name: columnSlideUp;
-  animation-timing-function: linear;
-  animation-duration: 55s;
-  animation-iteration-count: infinite;
-}
-
-@keyframes columnSlideUp {
-  0% {
-    margin-top: 0px;
-  }
-  100% {
-    margin-top: -478vh;
-  }
-}
 body {
   font-family: "Roboto", sans-serif;
   font-size: 16px;
@@ -240,19 +218,15 @@ main {
   width: 100vw;
   height: 100vh;
   position: relative;
-  z-index: 2;
   background: white;
+  z-index: 2;
 }
 main .grid-container {
   display: grid;
   gap: 2rem;
-  grid-template-columns: 1fr 1fr 2fr;
+  grid-template-columns: 1fr 1fr;
   position: relative;
-  overflow-y: scroll;
-  scrollbar-width: none;
-}
-main .grid-container::-webkit-scrollbar {
-  display: none;
+  overflow: hidden;
 }
 main .grid-container .column {
   display: flex;
@@ -300,6 +274,27 @@ main .grid-container .column:not(:last-child) img {
   object-position: center center;
   aspect-ratio: 9/16;
 }
+@media (max-width: 991px) {
+  main .grid-container .column:not(:last-child) img {
+    height: 100%;
+  }
+}
+main .grid-container .column.image-container {
+  overflow: auto;
+  scrollbar-width: none;
+}
+main .grid-container .column.image-container::-webkit-scrollbar {
+  display: none;
+}
+main .grid-container .column.image-container .image-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 2rem;
+}
+main .grid-container .column.image-container .image-row > figure {
+  flex: 1;
+}
 
 button#navToggle {
   position: absolute;
@@ -315,7 +310,7 @@ button#navToggle {
   transition: all 0.4s ease;
   transition-delay: 220ms;
   transform: translateX(-50%) scale(1);
-  z-index: 5;
+  z-index: 2;
 }
 button#navToggle > h2 {
   transition: all 0.2s ease;

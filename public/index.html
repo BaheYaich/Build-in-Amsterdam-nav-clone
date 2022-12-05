@@ -6,91 +6,91 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BuildinAmsterdam nav clone</title>
     <link rel="stylesheet" href="assets/css/main.css">
+    <script src="assets/js/isMobile.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" defer></script>
     <script src="assets/js/navtoggle.js" defer></script>
     <script src="https://cdn.jsdelivr.net/gh/peterhry/CircleType@2.3.1/dist/circletype.min.js" defer></script>
     <script src="assets/js/curvedText.js" defer></script>
+    <script src="assets/js/verticalScrollAnimation.js" defer></script>
 </head>
 <body data-nav="false">
     <main>
         <section class="grid-container" aria-label="Picture of Loki">
-            <!-- Flows downwards when scrolling downwards -->
-            <section class="column downwards">
-                <figure class="scroll-down">
-                    <picture>
-                        <img src="assets/img/IMG_2032.webp" alt="iPhone picture of a dog : Loki">
-                    </picture>
-                    <figcaption></figcaption>
-                </figure>
-                <figure>
-                    <picture>
-                        <img src="assets/img/IMG_1109.webp" alt="iPhone picture of a dog : Loki">
-                    </picture>
-                    <figcaption></figcaption>
-                </figure>
-                <figure>
-                    <picture>
-                        <img src="assets/img/IMG_1633.webp" alt="iPhone picture of a dog : Loki">
-                    </picture>
-                    <figcaption></figcaption>
-                </figure>
-                <figure>
-                    <picture>
-                        <img src="assets/img/IMG_1634.webp" alt="iPhone picture of a dog : Loki">
-                    </picture>
-                    <figcaption></figcaption>
-                </figure>
-                <figure>
-                    <picture>
-                        <img src="assets/img/IMG_2433.webp" alt="iPhone picture of a dog : Loki">
-                    </picture>
-                    <figcaption></figcaption>
-                </figure>
-                <figure>
-                    <picture>
-                        <img src="assets/img/IMG_2032.webp" alt="iPhone picture of a dog : Loki">
-                    </picture>
-                    <figcaption></figcaption>
-                </figure>
+
+            <!-- Contains all images, with each pair in a row -->
+            <section class="column image-container">
+                <div class="image-row image-row-1">
+                    <figure class="one">
+                        <picture>
+                            <img src="assets/img/IMG_2032.webp" alt="iPhone picture of a dog : Loki">
+                        </picture>
+                        <figcaption></figcaption>
+                    </figure>
+                    <figure class="one">
+                        <picture>
+                            <img src="assets/img/IMG_1652.webp" alt="iPhone picture of a dog : Loki">
+                        </picture>
+                        <figcaption></figcaption>
+                    </figure>
+                </div>
+                <div class="image-row image-row-2">
+                    <figure class="two">
+                        <picture>
+                            <img src="assets/img/IMG_1109.webp" alt="iPhone picture of a dog : Loki">
+                        </picture>
+                        <figcaption></figcaption>
+                    </figure>
+                    <figure class="two">
+                        <picture>
+                            <img src="assets/img/IMG_2430.webp" alt="iPhone picture of a dog : Loki">
+                        </picture>
+                        <figcaption></figcaption>
+                    </figure>
+                </div>
+                <div class="image-row image-row-3">
+                    <figure class="three">
+                        <picture>
+                            <img src="assets/img/IMG_1633.webp" alt="iPhone picture of a dog : Loki">
+                        </picture>
+                        <figcaption></figcaption>
+                    </figure>
+                    <figure class="three">
+                        <picture>
+                            <img src="assets/img/IMG_1759.webp" alt="iPhone picture of a dog : Loki">
+                        </picture>
+                        <figcaption></figcaption>
+                    </figure>
+                </div>
+                <div class="image-row image-row-4">
+                    <figure class="four">
+                        <picture>
+                            <img src="assets/img/IMG_1634.webp" alt="iPhone picture of a dog : Loki">
+                        </picture>
+                        <figcaption></figcaption>
+                    </figure>
+                    <figure class="four">
+                        <picture>
+                            <img src="assets/img/IMG_1916.webp" alt="iPhone picture of a dog : Loki">
+                        </picture>
+                        <figcaption></figcaption>
+                    </figure>
+                </div>
+                <div class="image-row image-row-5">
+                    <figure class="five">
+                        <picture>
+                            <img src="assets/img/IMG_2433.webp" alt="iPhone picture of a dog : Loki">
+                        </picture>
+                        <figcaption></figcaption>
+                    </figure>
+                    <figure class="five">
+                        <picture>
+                            <img src="assets/img/IMG_2317.webp" alt="iPhone picture of a dog : Loki">
+                        </picture>
+                        <figcaption></figcaption>
+                    </figure>
+                </div>
             </section>
-            <!-- Flows upwards when scrolling downwards -->
-            <section class="column upwards">
-                <figure class="scroll-up">
-                    <picture>
-                        <img src="assets/img/IMG_1652.webp" alt="iPhone picture of a dog : Loki">
-                    </picture>
-                    <figcaption></figcaption>
-                </figure>
-                <figure>
-                    <picture>
-                        <img src="assets/img/IMG_2430.webp" alt="iPhone picture of a dog : Loki">
-                    </picture>
-                    <figcaption></figcaption>
-                </figure>
-                <figure>
-                    <picture>
-                        <img src="assets/img/IMG_1759.webp" alt="iPhone picture of a dog : Loki">
-                    </picture>
-                    <figcaption></figcaption>
-                </figure>
-                <figure>
-                    <picture>
-                        <img src="assets/img/IMG_1916.webp" alt="iPhone picture of a dog : Loki">
-                    </picture>
-                    <figcaption></figcaption>
-                </figure>
-                <figure>
-                    <picture>
-                        <img src="assets/img/IMG_2317.webp" alt="iPhone picture of a dog : Loki">
-                    </picture>
-                    <figcaption></figcaption>
-                </figure>
-                <figure>
-                    <picture>
-                        <img src="assets/img/IMG_1652.webp" alt="iPhone picture of a dog : Loki">
-                    </picture>
-                    <figcaption></figcaption>
-                </figure>
-            </section>
+
             <!-- Remains static when scrolling -->
             <aside class="column static" aria-labelledby="#Title">
                 <div class="top">
@@ -98,7 +98,7 @@
                     <p>Dog of the year 16" - 22"</p>
                 </div>
                 <!-- Start : This is the main heading of the page -->
-                <h1 id="Title">I POST PICTURES OF MY DOG!</h1>
+                <h1 id="Title"><span class="title-span-top">I POST</span> <span class="title-span-middle">PICTURES</span> <span class="title-span-bottom">OF MY DOG!</span></h1>
                 <!-- End : This is the main heading of the page -->
                 <div class="bottom">
                     <h2>I believe everyone should be blinded by Loki's looks because he is so handsome</h2>
@@ -109,7 +109,7 @@
     <button id="navToggle" type="button" tabindex="0" onclick="toggleNav()">
         <h2 id="curved-text">Menu</h2>
     </button>
-    <!-- Navigation items initate as hidden when loading page -->
+    <!-- Navigation items initiate as hidden when loading page -->
     <nav id="nav">
         <ul class="nav-container">
             <li class="nav-item">

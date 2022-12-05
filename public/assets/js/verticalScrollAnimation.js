@@ -14,7 +14,9 @@ const lastImageObserver = new IntersectionObserver (entries => {
     loadFirstImageAtLastPosition()
     lastImageObserver.unobserve(lastImage.target)
     lastImageObserver.observe(document.querySelector(".image-container > .image-row:last-child"))
-}, {})
+}, {
+    threshold: 1,
+})
 
 lastImageObserver.observe(document.querySelector(".image-container > .image-row:last-child"))
 
@@ -29,10 +31,14 @@ function loadFirstImageAtLastPosition() {
     imageContainer.append(firstImage)
 }
 
-let scrollDirection = 10;
 function pageScroll() {
-    imageContainer.animate({
-        scrollTop: imageContainer.offset().top + scrollDirection
-    }, 'slow'); 
+    imageContainer.scrollBy({
+        top: 10,
+        behavior: 'smooth'
+      });
 }
-pageScroll();
+function infiniteScroll() {
+    window.setInterval(pageScroll, 100);
+};
+
+infiniteScroll();

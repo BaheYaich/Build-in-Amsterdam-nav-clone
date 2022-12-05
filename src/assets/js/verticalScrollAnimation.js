@@ -14,7 +14,9 @@ const lastImageObserver = new IntersectionObserver (entries => {
     loadFirstImageAtLastPosition()
     lastImageObserver.unobserve(lastImage.target)
     lastImageObserver.observe(document.querySelector(".image-container > .image-row:last-child"))
-}, {threshold: 1,})
+}, {
+    threshold: 1,
+})
 
 lastImageObserver.observe(document.querySelector(".image-container > .image-row:last-child"))
 
@@ -37,7 +39,6 @@ function pageScroll() {
 }
 function infiniteScroll() {
     window.setInterval(pageScroll, 100);
-    console.log("I'm scrolling infinitely")
 };
 
 infiniteScroll();

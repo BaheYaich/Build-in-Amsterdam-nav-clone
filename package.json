@@ -1,7 +1,7 @@
 {
-  "name": "bianc",
+  "name": "buildinamsterdamclone",
   "version": "0.0.0",
-  "description": "(clone) I try to recreate the Build in Amsterdam nav",
+  "description": "I try to recreate the Build in Amsterdam navigational menu and the landing page using only vanilla JS and SCSS",
   "main": "src/index.html",
   "author": "Bahe",
   "scripts": {

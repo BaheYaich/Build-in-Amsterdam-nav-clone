@@ -6,12 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BuildinAmsterdam nav clone</title>
     <link rel="stylesheet" href="assets/css/main.css">
-    <script src="assets/js/isMobile.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.10.2/lottie.min.js" defer></script>
+    <script src="assets/js/isMobile.js" defer></script>
     <script src="assets/js/navtoggle.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/gh/peterhry/CircleType@2.3.1/dist/circletype.min.js" defer></script>
-    <script src="assets/js/curvedText.js" defer></script>
     <script src="assets/js/verticalScrollAnimation.js" defer></script>
+    <script src="assets/js/lottieAnimations.js" defer></script>
+    <script src="assets/js/navMenu.js" defer></script>
 </head>
 <body data-nav="false">
     <main>
@@ -19,72 +20,102 @@
 
             <!-- Contains all images, with each pair in a row -->
             <section class="column image-container">
-                <div class="image-row image-row-1">
-                    <figure class="one">
+                <div class="image-column image-column-1">
+                    <figure>
                         <picture>
-                            <img src="assets/img/IMG_2032.webp" alt="iPhone picture of a dog : Loki">
+                            <img src="assets/img/IMG_0001.webp" alt="iPhone picture of a dog : Loki">
                         </picture>
                         <figcaption></figcaption>
                     </figure>
-                    <figure class="one">
+                    <figure>
                         <picture>
                             <img src="assets/img/IMG_1652.webp" alt="iPhone picture of a dog : Loki">
                         </picture>
                         <figcaption></figcaption>
                     </figure>
-                </div>
-                <div class="image-row image-row-2">
-                    <figure class="two">
-                        <picture>
-                            <img src="assets/img/IMG_1109.webp" alt="iPhone picture of a dog : Loki">
-                        </picture>
-                        <figcaption></figcaption>
-                    </figure>
-                    <figure class="two">
-                        <picture>
-                            <img src="assets/img/IMG_2430.webp" alt="iPhone picture of a dog : Loki">
-                        </picture>
-                        <figcaption></figcaption>
-                    </figure>
-                </div>
-                <div class="image-row image-row-3">
-                    <figure class="three">
+                    <figure>
                         <picture>
                             <img src="assets/img/IMG_1633.webp" alt="iPhone picture of a dog : Loki">
                         </picture>
                         <figcaption></figcaption>
                     </figure>
-                    <figure class="three">
+                    <figure>
                         <picture>
                             <img src="assets/img/IMG_1759.webp" alt="iPhone picture of a dog : Loki">
                         </picture>
                         <figcaption></figcaption>
                     </figure>
+                    <figure>
+                        <picture>
+                            <img src="assets/img/IMG_0002.webp" alt="iPhone picture of a dog : Loki">
+                        </picture>
+                        <figcaption></figcaption>
+                    </figure>
+                    <figure>
+                        <picture>
+                            <img src="assets/img/IMG_0003.webp" alt="iPhone picture of a dog : Loki">
+                        </picture>
+                        <figcaption></figcaption>
+                    </figure>
+                    <figure>
+                        <picture>
+                            <img src="assets/img/IMG_0006.webp" alt="iPhone picture of a dog : Loki">
+                        </picture>
+                        <figcaption></figcaption>
+                    </figure>
+                    <figure>
+                        <picture>
+                            <img src="assets/img/IMG_0007.webp" alt="iPhone picture of a dog : Loki">
+                        </picture>
+                        <figcaption></figcaption>
+                    </figure>
                 </div>
-                <div class="image-row image-row-4">
-                    <figure class="four">
+                <div class="image-column image-column-2">
+                    <figure>
+                        <picture>
+                            <img src="assets/img/IMG_1109.webp" alt="iPhone picture of a dog : Loki">
+                        </picture>
+                        <figcaption></figcaption>
+                    </figure>
+                    <figure>
+                        <picture>
+                            <img src="assets/img/IMG_2430.webp" alt="iPhone picture of a dog : Loki">
+                        </picture>
+                        <figcaption></figcaption>
+                    </figure>
+                    <figure>
                         <picture>
                             <img src="assets/img/IMG_1634.webp" alt="iPhone picture of a dog : Loki">
                         </picture>
                         <figcaption></figcaption>
                     </figure>
-                    <figure class="four">
+                    <figure>
                         <picture>
                             <img src="assets/img/IMG_1916.webp" alt="iPhone picture of a dog : Loki">
                         </picture>
                         <figcaption></figcaption>
                     </figure>
-                </div>
-                <div class="image-row image-row-5">
-                    <figure class="five">
+                    <figure>
                         <picture>
                             <img src="assets/img/IMG_2433.webp" alt="iPhone picture of a dog : Loki">
                         </picture>
                         <figcaption></figcaption>
                     </figure>
-                    <figure class="five">
+                    <figure>
                         <picture>
                             <img src="assets/img/IMG_2317.webp" alt="iPhone picture of a dog : Loki">
+                        </picture>
+                        <figcaption></figcaption>
+                    </figure>
+                    <figure>
+                        <picture>
+                            <img src="assets/img/IMG_0004.webp" alt="iPhone picture of a dog : Loki">
+                        </picture>
+                        <figcaption></figcaption>
+                    </figure>
+                    <figure>
+                        <picture>
+                            <img src="assets/img/IMG_0005.webp" alt="iPhone picture of a dog : Loki">
                         </picture>
                         <figcaption></figcaption>
                     </figure>
@@ -95,7 +126,7 @@
             <aside class="column static" aria-labelledby="#Title">
                 <div class="top">
                     <p>Awooords</p>
-                    <p>Dog of the year 16" - 22"</p>
+                    <p>Dog of the year 16" - 23"</p>
                 </div>
                 <!-- Start : This is the main heading of the page -->
                 <h1 id="Title"><span class="title-span-top">I POST</span> <span class="title-span-middle">PICTURES</span> <span class="title-span-bottom">OF MY DOG!</span></h1>
@@ -107,51 +138,53 @@
         </div>
     </main>
     <button id="navToggle" type="button" tabindex="0" onclick="toggleNav()">
-        <h2 id="curved-text">Menu</h2>
+        <div class="button-skeleton"></div>
+        <div class="lottie-container"></div>
+        <div class="lottie-container2 hide"></div>
     </button>
     <!-- Navigation items initiate as hidden when loading page -->
     <nav id="nav">
-        <ul class="nav-container">
-            <li class="nav-item">
+        <ul id="image-track" class="nav-container" data-mouse-down-at="0" data-prev-percentage="0">
+            <li class="nav-item" draggable="false">
                 <a href="#">
                     <p>Album 16"</p>
-                    <img src="assets/img/IMG_1045.webp" alt="">
+                    <img class="nav-image" src="assets/img/IMG_1045.webp" alt="">
                 </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" draggable="false">
                 <a href="#">
                     <p>Album 17"</p>
-                    <img src="assets/img/IMG_1109.webp" alt="">
+                    <img class="nav-image" src="assets/img/IMG_1109.webp" alt="">
                 </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" draggable="false">
                 <a href="#">
                     <p>Album 18"</p>
-                    <img src="assets/img/IMG_1633.webp" alt="">
+                    <img class="nav-image" src="assets/img/IMG_1633.webp" alt="">
                 </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" draggable="false">
                 <a href="#">
                     <p>Album 19"</p>
-                    <img src="assets/img/IMG_1658.webp" alt="">
+                    <img class="nav-image" src="assets/img/IMG_1658.webp" alt="">
                 </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" draggable="false">
                 <a href="#">
                     <p>Album 20"</p>
-                    <img src="assets/img/IMG_1916.webp" alt="">
+                    <img class="nav-image" src="assets/img/IMG_1916.webp" alt="">
                 </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" draggable="false">
                 <a href="#">
                     <p>Album 21"</p>
-                    <img src="assets/img/IMG_2317.webp" alt="">
+                    <img class="nav-image" src="assets/img/IMG_2317.webp" alt="">
                 </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" draggable="false">
                 <a href="#">
                     <p>Album 22"</p>
-                    <img src="assets/img/IMG_2430.webp" alt="">
+                    <img class="nav-image" src="assets/img/IMG_2430.webp" alt="">
                 </a>
             </li>
         </ul>

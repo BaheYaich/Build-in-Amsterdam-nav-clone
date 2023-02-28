@@ -26,15 +26,19 @@ body {
             -ms-transform: translateY(-50%);
             -o-transform: translateY(-50%);
         }
-        nav > ul {
-            transform: translateY(10%) scale(1);
-            -webkit-transform: translateY(10%) scale(1);
-            -moz-transform: translateY(10%) scale(1);
-            -ms-transform: translateY(10%) scale(1);
-            -o-transform: translateY(10%) scale(1);
+        nav {
+            > ul {
+                transform: translateY(10%) scale(1);
+                -webkit-transform: translateY(10%) scale(1);
+                -moz-transform: translateY(10%) scale(1);
+                -ms-transform: translateY(10%) scale(1);
+                -o-transform: translateY(10%) scale(1);
+            }
         }
-        button#navToggle .button-skeleton {
-            background-color: rgb(85, 130, 149);
+        button#navToggle {
+            .button-skeleton {
+                background-color: rgb(85, 130, 149);
+            }
         }
         .lottie-container2 svg g g {
             fill: white;
@@ -45,15 +49,19 @@ body {
         main {
             transform: translateY(0);
         }
-        nav > ul {
-            transform: translateY(-30%) scale(0.7);
-            -webkit-transform: translateY(-30%) scale(0.7);
-            -moz-transform: translateY(-30%) scale(0.7);
-            -ms-transform: translateY(-30%) scale(0.7);
-            -o-transform: translateY(-30%) scale(0.7);
+        nav {
+            > ul {
+                transform: translateY(-30%) scale(0.7);
+                -webkit-transform: translateY(-30%) scale(0.7);
+                -moz-transform: translateY(-30%) scale(0.7);
+                -ms-transform: translateY(-30%) scale(0.7);
+                -o-transform: translateY(-30%) scale(0.7);
+            }
         }
-        button#navToggle .button-skeleton {
-            background-color: rgb(195, 129, 51);
+        button#navToggle {
+            .button-skeleton {
+                background-color: rgb(195, 129, 51);
+            }
         }
         .lottie-container svg g g {
             fill: black;
@@ -70,6 +78,7 @@ main {
     .grid-container {
         display: grid;
         gap: 2rem;
+        grid-template-areas: "images static-column";
         grid-template-columns: 1fr 1fr;
         position: relative;
         overflow: hidden;
@@ -79,6 +88,7 @@ main {
             gap: 2rem;
             height: 100vh;
             &.static {
+                grid-area: static-column;
                 background-color: $background-primary;
                 padding: 3rem;
                 height: 100vh;
@@ -124,6 +134,7 @@ main {
                 }
             }
             &.image-container {
+                grid-area: images;
                 scroll-behavior: smooth;
                 overflow: auto;
                 // Firefox scrollbar rules
@@ -200,6 +211,7 @@ nav#nav {
     z-index: 1;
     overflow: hidden;
     background-color: black;
+    transition: height 500ms cubic-bezier(.13,.53,.38,.97);;
     > ul#image-track.nav-container {
         list-style: none;
         position: relative;
@@ -250,6 +262,130 @@ nav#nav {
                 }
                 img {
                     transform: scale(0.9);
+                }
+            }
+        }
+    }
+}
+
+
+@media (max-width: 1199px) {
+    body {
+        //Nav menu is visible and text shows 'close'
+        &[data-nav='true'] {
+            main {
+                height: 100%;
+                transform: none;
+            }
+            nav#nav {
+                position: sticky;
+                z-index: 2;
+                bottom: 0;
+                height: 50vh;
+            }
+            overflow: hidden;
+        }
+
+        //Nav menu is hidden and text shows 'menu' & base values for when page loads
+        &[data-nav='false'] {
+            main {
+                height: 100%;
+                transform: none;
+            }
+            nav#nav {
+                position: sticky;
+                z-index: 2;
+                bottom: 0;
+                height: 0vh;
+            }
+            overflow: auto;
+        }
+        main {
+            height: 100%;
+            .grid-container {
+                overflow: auto;
+                grid-template-areas: "static-column" "images";
+                grid-template-columns: 1fr;
+                height: 100%;
+                .column {
+                    height: 100%;
+                }
+                .column.static {
+                    height: 90vh;
+                }
+                .column.image-container {
+                    .image-column {
+                        flex: 1;
+                        height: 100%;
+                        img {
+                            height: auto;
+                            width: 100%;
+                            aspect-ratio: 9 / 16;
+                        }
+                    }
+                }
+            }
+        }
+        button#navToggle { 
+            position: fixed;
+            z-index: 3;
+        }
+        nav#nav {
+            > ul#image-track.nav-container {
+                grid-auto-columns: 25vw;
+                li {
+                    a img {
+                        width: 100%;
+                        aspect-ratio: 11 / 10;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        main {
+            .grid-container {
+                .column.static {
+                    width: 100vw;
+                    #Title {
+                        font-size: clamp(3rem, 1vw, 4rem);
+                        width: auto;
+                    }
+                    .bottom, .top {
+                        width: auto;
+                    }
+                }
+                .column.image-container {
+                    flex-direction: column;
+                    width: 100vw;
+                }
+            }
+        }
+        nav#nav {
+            > ul#image-track.nav-container {
+                li {
+                    a img {
+                        width: 100%;
+                        aspect-ratio: 9 / 10;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 575px) {
+    body {
+        nav#nav {
+            > ul#image-track.nav-container {
+                li {
+                    a img {
+                        width: 100%;
+                        aspect-ratio: 9 / 10;
+                    }
                 }
             }
         }

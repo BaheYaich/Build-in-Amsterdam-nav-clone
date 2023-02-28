@@ -1,6 +1,7 @@
 const navWrapper = document.getElementById("nav")
 const track = document.getElementById("image-track");
 const navItems = document.querySelectorAll(".nav-item")
+let desktop
 
 const handleOnDown = e => track.dataset.mouseDownAt = e.clientX;
 
@@ -25,7 +26,7 @@ const handleOnMove = e => {
     }
 
     const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX,
-        maxDelta = window.innerWidth / 2;
+        maxDelta = window.innerWidth / 3;
 
     const percentage = (mouseDelta / maxDelta) * -100,
         nextPercentageUnconstrained = parseFloat(track.dataset.prevPercentage) + percentage,

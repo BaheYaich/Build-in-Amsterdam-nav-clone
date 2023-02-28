@@ -339,6 +339,7 @@ main {
 main .grid-container {
   display: grid;
   gap: 2rem;
+  grid-template-areas: "images static-column";
   grid-template-columns: 1fr 1fr;
   position: relative;
   overflow: hidden;
@@ -350,6 +351,7 @@ main .grid-container .column {
   height: 100vh;
 }
 main .grid-container .column.static {
+  grid-area: static-column;
   background-color: #f2efe6;
   padding: 3rem;
   height: 100vh;
@@ -395,6 +397,7 @@ main .grid-container .column:not(:last-child) img {
   }
 }
 main .grid-container .column.image-container {
+  grid-area: images;
   scroll-behavior: smooth;
   overflow: auto;
   scrollbar-width: none;
@@ -464,6 +467,7 @@ nav#nav {
   z-index: 1;
   overflow: hidden;
   background-color: black;
+  transition: height 500ms cubic-bezier(0.13, 0.53, 0.38, 0.97);
 }
 nav#nav > ul#image-track.nav-container {
   list-style: none;
@@ -516,4 +520,94 @@ nav#nav > ul#image-track.nav-container li:hover p {
 }
 nav#nav > ul#image-track.nav-container li:hover img {
   transform: scale(0.9);
+}
+
+@media (max-width: 1199px) {
+  body[data-nav=true] {
+    overflow: hidden;
+  }
+  body[data-nav=true] main {
+    height: 100%;
+    transform: none;
+  }
+  body[data-nav=true] nav#nav {
+    position: sticky;
+    z-index: 2;
+    bottom: 0;
+    height: 50vh;
+  }
+  body[data-nav=false] {
+    overflow: auto;
+  }
+  body[data-nav=false] main {
+    height: 100%;
+    transform: none;
+  }
+  body[data-nav=false] nav#nav {
+    position: sticky;
+    z-index: 2;
+    bottom: 0;
+    height: 0vh;
+  }
+  body main {
+    height: 100%;
+  }
+  body main .grid-container {
+    overflow: auto;
+    grid-template-areas: "static-column" "images";
+    grid-template-columns: 1fr;
+    height: 100%;
+  }
+  body main .grid-container .column {
+    height: 100%;
+  }
+  body main .grid-container .column.static {
+    height: 90vh;
+  }
+  body main .grid-container .column.image-container .image-column {
+    flex: 1;
+    height: 100%;
+  }
+  body main .grid-container .column.image-container .image-column img {
+    height: auto;
+    width: 100%;
+    aspect-ratio: 9/16;
+  }
+  body button#navToggle {
+    position: fixed;
+    z-index: 3;
+  }
+  body nav#nav > ul#image-track.nav-container {
+    grid-auto-columns: 25vw;
+  }
+  body nav#nav > ul#image-track.nav-container li a img {
+    width: 100%;
+    aspect-ratio: 11/10;
+  }
+}
+@media (max-width: 768px) {
+  body main .grid-container .column.static {
+    width: 100vw;
+  }
+  body main .grid-container .column.static #Title {
+    font-size: clamp(3rem, 1vw, 4rem);
+    width: auto;
+  }
+  body main .grid-container .column.static .bottom, body main .grid-container .column.static .top {
+    width: auto;
+  }
+  body main .grid-container .column.image-container {
+    flex-direction: column;
+    width: 100vw;
+  }
+  body nav#nav > ul#image-track.nav-container li a img {
+    width: 100%;
+    aspect-ratio: 9/10;
+  }
+}
+@media (max-width: 575px) {
+  body nav#nav > ul#image-track.nav-container li a img {
+    width: 100%;
+    aspect-ratio: 9/10;
+  }
 }

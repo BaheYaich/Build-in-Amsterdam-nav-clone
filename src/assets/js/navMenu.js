@@ -1,7 +1,6 @@
 const navWrapper = document.getElementById("nav")
 const track = document.getElementById("image-track");
 const navItems = document.querySelectorAll(".nav-item")
-let desktop
 
 const handleOnDown = e => track.dataset.mouseDownAt = e.clientX;
 
